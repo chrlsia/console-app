@@ -17,27 +17,25 @@ func main() {
 		_ = keyboard.Close()
 	}()
 
-	fmt.Println("Press any key on the keyboard.Press ESC to quit.")
+	fmt.Println("MENU")
+	fmt.Println("---")
+	fmt.Println("1- Cappucino")
+	fmt.Println("2- Latte")
+	fmt.Println("3- Americano")
+	fmt.Println("4- Mocha")
+	fmt.Println("5- Macchiato")
+	fmt.Println("6- Espresso")
+	fmt.Println("Q- Quit the program ...")
 
 	for {
-		char, key, err := keyboard.GetSingleKey()
-		fmt.Println(char,key, err)
-
-		//check for an error
+		char, _, err := keyboard.GetSingleKey()
 		if err != nil {
 			log.Fatal(err)
 		}
 
-		if key != 0 {
-			//for a: char is 97 and key is 0
-			//for ESC: char is 0 and key is 27
-			
-			fmt.Println("You pressed", char, key)
-		} else {
-			fmt.Println("You pressed", char)
-		}
+		fmt.Println("You chose",char)
 
-		if key == keyboard.KeyEsc {
+		if char == 'q' || char =='Q' {
 			break
 		}
 	}
