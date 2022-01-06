@@ -28,12 +28,12 @@ func main() {
 	
 	fmt.Println("MENU")
 	fmt.Println("---")
-	fmt.Println("1- Cappucino")
-	fmt.Println("2- Latte")
-	fmt.Println("3- Americano")
-	fmt.Println("4- Mocha")
-	fmt.Println("5- Macchiato")
-	fmt.Println("6- Espresso")
+	fmt.Println("1-",coffees[1])
+	fmt.Println("2-",coffees[2])
+	fmt.Println("3-",coffees[3])
+	fmt.Println("4-",coffees[4])
+	fmt.Println("5-",coffees[5])
+	fmt.Println("6-",coffees[6])
 	fmt.Println("Q- Quit the program ...")
 
 	for {
@@ -47,7 +47,11 @@ func main() {
 		}
 
 		i,_:=strconv.Atoi(string(char))
-		fmt.Println(fmt.Sprintf("You chose %s",coffees[i]))
+		if i<=6 && i>=1 {
+			fmt.Println(fmt.Sprintf("You chose %s",coffees[i]))
+		} else {
+			fmt.Println("Number out of bounds.Type a numbers from 1 to 6")
+		}
 
 	}
 
