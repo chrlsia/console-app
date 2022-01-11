@@ -35,22 +35,21 @@ func main() {
 	fmt.Println("5-",coffees[5])
 	fmt.Println("6-",coffees[6])
 	fmt.Println("Q- Quit the program ...")
-
-	for {
-		char, _, err := keyboard.GetSingleKey()
+	
+	char:= ' '
+	for char != 'q' && char !='Q'{
+		char, _, err = keyboard.GetSingleKey()
 		if err != nil {
 			log.Fatal(err)
 		}
 		
-		if char == 'q' || char =='Q' {
-			break
-		}
+
 
 		i,_:=strconv.Atoi(string(char))
-		if i<=6 && i>=1 {
+
+		_,ok:=coffees[i]
+		if ok{
 			fmt.Println(fmt.Sprintf("You chose %s",coffees[i]))
-		} else {
-			fmt.Println("Number out of bounds.Type a numbers from 1 to 6")
 		}
 
 	}
